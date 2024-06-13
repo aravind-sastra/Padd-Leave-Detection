@@ -1,0 +1,44 @@
+
+library(shiny)
+library(shinydashboard)
+library(shinyWidgets)
+ui <- dashboardPage(skin = "green",dashboardHeader(title = "Paddy Leaf Disease Detection"),
+  dashboardSidebar(
+    menuItem("INPUT IMAGES",tabName = "INPUT"),
+    menuItem("OUTPUT IMAGES",tabName = "OUTPUT"),
+    menuItem("DATA SUMMARY",tabName = "DATA"),
+    menuItem("PLOT")),
+  dashboardBody(
+    fluidRow(column(6,align="center",imageOutput("img"))),
+    setBackgroundImage(src = "images.jpeg"),
+    
+ tabItems(tabItem(tabName = "INPUT",
+ headerPanel("BACTERIAL BLIGHT"),
+ fileInput("file","Upload the file",multiple = T),hr(),tabPanel("Upload file"),headerPanel("BROWN SPOT"),
+ fileInput("file","Upload the file",multiple = T),hr(),tabPanel("Upload file"),headerPanel("LEAF SMUT"),
+ fileInput("file","Upload the file",multiple = T),hr(),tabPanel("Upload file"))),
+  
+   tabItems(tabItem(tabName = "OUTPUT",
+    tabPanel(tags$img(src = "ip1.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip2.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip3.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip4.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip5.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip6.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip7.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip8.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip9.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip10.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip11.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip12.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip13.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip14.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),
+    img(src = "ip15.jpg",contentType="image/jpg",width=300,height=300,alt="Face"),deleteFile=FALSE)))
+ ))
+
+
+server <- function(input,output)
+  {
+  output$img <-renderImage({return(list(src = "D:/image.jpg",contentType="image/jpg",width=300,height=300,alt="Face"))},deleteFile=FALSE)
+  }
+shinyApp(ui, server)

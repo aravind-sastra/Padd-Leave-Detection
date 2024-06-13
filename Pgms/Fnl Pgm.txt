@@ -1,0 +1,85 @@
+install.packages("OpenImageR")
+library(OpenImageR)
+install.packages("keras")
+library(keras)
+library("EBImage", lib.loc="~/R/win-library/3.5")
+setwd('C:/Users/Aravind Prasad/Desktop/MRICE/Train')
+pics<-c('Bacterial1.jpg','Bacterial2.jpg','Bacterial3.jpg','Bacterial4.jpg','Bacterial5.jpg',
+        'Bacterial6.jpg','Bacterial7.jpg','Bacterial8.jpg','Bacterial9.jpg',,'Bacterial11.jpg','Bacterial12.jpg','Bacterial13.jpg','Bacterial14.jpg','Bacterial15.jpg','Bacterial16.jpg','Bacterial9.jpg','Bacterial9.jpg','Bacterial9.jpg''Brown1.jpg','Brown2.jpg',
+        'Brown3.jpg','Brown4.jpg','Brown5.jpg','Brown6.jpg','Brown7.jpg','Brown8.jpg','Brown9.jpg')
+mypic<-list()
+for(i in 1:18){
+  mypic[[i]] <- readImage(pics[i])
+}
+print(mypic[[1]])
+display(mypic[[2]])
+summary(mypic[[1]])
+hist(mypic[[2]])
+str(mypic)
+for(i in 1:18)
+{
+  mypic[[i]] <-resize(mypic[[i]],28,28)
+}
+for(i in 1:12)
+{
+  mypic[[i]]<-array_reshape(mypic[[i]],c(28,28,3))
+}
+str(mypic)
+trainx<-NULL
+for(i in 1:10)
+{
+  trainx <- rbind(trainx,mypic[[i]])
+}
+str(trainx)
+testx<-rbind(mypic[[6]],mypic[[12]])
+trainy <-c(0,0,0,0,0,1,1,1,1,1)
+testy<-c(0,1)
+trainLabels <- to_categorical(trainy)
+testLabels<-to_categorical(testy)
+library(keras)
+model <- keras_model_sequential()
+model %>%
+  layer_dense(units =256,activation = 'relu',input_shape=c(2352)) %>%
+  layer_dense(units=128,activation ='relu') %>%
+  layer_dense(units=2,activation='softmax')
+summary(model)
+model %>%
+  compile(loss='binary_crossentropy',optimizer=optimizer_rmsprop(),metrics=c('accuracy'))
+history <- model %>%
+  fit(trainx,trainLabels,epochs=30,batch_size = 32,validation_split=0.2)
+plot(history)
+model %>% evaluate(trainx,trainLabels)
+pred <- model %>% predict_classes(trainx)
+table(Predicted = pred ,Actual = trainy)
+prob <- model %>% predict_proba(trainx)
+cbind(prob,Prected = pred,Actual=trainy)
+model %>% evaluate(testx,testLabels)
+pred <- model %>% predict_classes(testx)
+table(Predicted = pred ,Actual =testy)
+display(mypic[[6]])
+str()
+
+
+
+
+
+
+
+
+
+
+
+
+
+pics<-c('Bacterial1.jpg','Bacterial2.jpg','Bacterial3.jpg','Bacterial4.jpg','Bacterial5.jpg',
+        'Bacterial6.jpg','Bacterial7.jpg','Bacterial8.jpg','Bacterial9.jpg','Bacterial10.jpg',
+	'Bacterial11.jpg','Bacterial12.jpg','Bacterial13.jpg','Bacterial14.jpg','Bacterial15.jpg',
+	'Bacterial16.jpg','Bacterial17.jpg','Bacterial18.jpg','Bacterial19.jpg','Bacterial20.jpg',
+	'Bacterial21.jpg','Bacterial22.jpg','Bacterial23.jpg','Bacterial24.jpg','Bacterial25.jpg',
+	'Bacterial26.jpg','Bacterial27.jpg','Bacterial28.jpg','Bacterial29.jpg','Bacterial30.jpg','
+	'Bacterial31.jpg','Bacterial32.jpg','Bacterial33.jpg','Bacterial33.jpg','Bacterial34.jpg',
+	'Bacterial35.jpg','Bacterial36.jpg','Bacterial37.jpg','Bacterial38.jpg','Bacterial39.jpg','Bacterial40.jpg',
+	'Brown1.jpg','Brown2.jpg','Brown3.jpg','Brown4.jpg','Brown5.jpg','Brown6.jpg','Brown7.jpg','Brown8.jpg','Brown9.jpg','Brown10.jpg',`
+	'Brown11.jpg','Brown12.jpg','Brown13.jpg','Brown14.jpg','Brown15.jpg','Brown16.jpg','Brown17.jpg','Brown18.jpg','Brown19.jpg','Brown20.jpg',
+	'Brown21.jpg','Brown22.jpg','Brown23.jpg','Brown24.jpg','Brown25.jpg','Brown26.jpg','Brown27.jpg','Brown28.jpg','Brown29.jpg','Brown30.jpg',
+	'Brown31.jpg','Brown32.jpg','Brown33.jpg','Brown34.jpg','Brown35.jpg','Brown36.jpg','Brown37.jpg','Brown38.jpg','Brown39.jpg','Brown40.jpg')

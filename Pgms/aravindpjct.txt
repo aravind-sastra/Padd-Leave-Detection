@@ -1,0 +1,821 @@
+
+R version 3.5.2 (2018-12-20) -- "Eggshell Igloo"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+Loading required package: twitteR
+Error: package or namespace load failed for ‘twitteR’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
+ there is no package called ‘bit’
+> setwd('C:/Users/admin/Desktop/Rice/Train/')
+Warning message:
+R graphics engine version 12 is not supported by this version of RStudio. The Plots tab will be disabled until a newer version of RStudio is installed. 
+> pics<-c('Bacterial1.jpg','Bacterial2.jpg','Bacterial3.jpg','Bacterial4.jpg','Bacterial5.jpg',
++         'Bacterial6.jpg','Bacterial7.jpg','Bacterial8.jpg','Bacterial9.jpg','Brown1.jpg','Brown2.jpg',
++         'Brown3.jpg','Brown4.jpg','Brown5.jpg','Brown6.jpg','Brown7.jpg','Brown8.jpg','Brown9.jpg')
+> mypic<-list()
+> for(i in 1:18){
++   mypic[[i]] <- readImage(pics[i])
++ }
+Error in readImage(pics[i]) : could not find function "readImage"
+> install.packages("OpenImageR")
+Installing package into ‘C:/Users/admin/Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.5/OpenImageR_1.1.5.zip'
+Content type 'application/zip' length 2801184 bytes (2.7 MB)
+downloaded 2.7 MB
+
+package ‘OpenImageR’ successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\admin\AppData\Local\Temp\Rtmp8IiAvO\downloaded_packages
+> library(OpenImageR)
+Warning message:
+package ‘OpenImageR’ was built under R version 3.5.3 
+> library(OpenImageR)+
+> setwd('C:/Users/admin/Desktop/Rice/Train/')
+> pics<-c('Bacterial1.jpg','Bacterial2.jpg','Bacterial3.jpg','Bacterial4.jpg','Bacterial5.jpg',
++         'Bacterial6.jpg','Bacterial7.jpg','Bacterial8.jpg','Bacterial9.jpg','Brown1.jpg','Brown2.jpg',
++         'Brown3.jpg','Brown4.jpg','Brown5.jpg','Brown6.jpg','Brown7.jpg','Brown8.jpg','Brown9.jpg')
+> mypic<-list()
+> for(i in 1:18){
++   mypic[[i]] <- readImage(pics[i])
++ }
+> setwd('C:/Users/admin/Desktop/Rice/Train/')
+> print(mypic[[1]])
+ [ reached getOption("max.print") -- omitted 3 matrix slice(s) ]
+> display(mypic[[2]])
+Error in display(mypic[[2]]) : could not find function "display"
+> library("EBImage", lib.loc="~/R/win-library/3.5")
+
+Attaching package: ‘EBImage’
+
+The following objects are masked from ‘package:OpenImageR’:
+
+    readImage, writeImage
+
+> library("EBImage", lib.loc="~/R/win-library/3.5")
+> display(mypic[[2]])
+> summary(mypic[[1]])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.7529  0.8235  0.7164  0.8549  0.9647 
+> hist(mypic[[2]])
+> setwd('C:/Users/admin/Desktop/Rice/Train/')
+> pics<-c('Bacterial1.jpg','Bacterial2.jpg','Bacterial3.jpg','Bacterial4.jpg','Bacterial5.jpg',
++         'Bacterial6.jpg','Bacterial7.jpg','Bacterial8.jpg','Bacterial9.jpg','Brown1.jpg','Brown2.jpg',
++         'Brown3.jpg','Brown4.jpg','Brown5.jpg','Brown6.jpg','Brown7.jpg','Brown8.jpg','Brown9.jpg')
+> mypic<-list()
+> for(i in 1:18){
++   mypic[[i]] <- readImage(pics[i])
++ }
+> print(mypic[[1]])
+Image 
+  colorMode    : Color 
+  storage.mode : double 
+  dim          : 3081 897 3 
+  frames.total : 3 
+  frames.render: 1 
+
+imageData(object)[1:5,1:6,1]
+          [,1]      [,2]      [,3]      [,4]      [,5]      [,6]
+[1,] 0.8980392 0.8980392 0.8980392 0.8941176 0.8901961 0.8901961
+[2,] 0.8980392 0.8980392 0.8980392 0.8901961 0.8901961 0.8862745
+[3,] 0.9019608 0.9019608 0.8980392 0.8901961 0.8901961 0.8862745
+[4,] 0.9019608 0.9019608 0.9019608 0.8941176 0.8901961 0.8901961
+[5,] 0.9058824 0.9058824 0.9019608 0.8980392 0.8941176 0.8901961
+> display(mypic[[2]])
+> summary(mypic[[1]])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.7529  0.8235  0.7164  0.8549  0.9647 
+> hist(mypic[[2]])
+> str(mypic)
+List of 18
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.898 0.898 0.902 0.902 0.906 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.89 0.894 0.894 0.89 0.894 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.933 0.929 0.922 0.918 0.922 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.918 0.918 0.922 0.925 0.929 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.937 0.937 0.937 0.937 0.937 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.941 0.937 0.937 0.933 0.933 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.941 0.941 0.941 0.941 0.941 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.89 0.89 0.89 0.894 0.894 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.91 0.906 0.906 0.906 0.906 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:766, 1:250, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:1530, 1:371, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:1480, 1:279, 1:3] 0.455 0.443 0.431 0.42 0.42 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:1504, 1:323, 1:3] 0.882 0.898 0.894 0.878 0.871 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:765, 1:224, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:763, 1:268, 1:3] 0.718 0.698 0.729 0.761 0.733 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:699, 1:197, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:456, 1:124, 1:3] 0.839 0.875 0.867 0.863 0.859 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:316, 1:127, 1:3] 0.675 0.686 0.694 0.694 0.698 ...
+  .. ..@ colormode: int 2
+> for(i in 1:18)
++ {
++   mypic[[i]] <-resize(mypic[[i]],28,28)
++ }
+> for(i in 1:18)
++ {
++   mypic[[i]]<-array_reshape(mypic[[i]],c(28,28,3))
++ }
+Error in array_reshape(mypic[[i]], c(28, 28, 3)) : 
+  could not find function "array_reshape"
+> library("keras", lib.loc="~/R/win-library/3.5")
+
+Attaching package: ‘keras’
+
+The following object is masked from ‘package:EBImage’:
+
+    normalize
+
+> install.packages("keras")
+Installing package into ‘C:/Users/admin/Documents/R/win-library/3.5’
+(as ‘lib’ is unspecified)
+
+  There is a binary version available but the source version is later:
+       binary  source needs_compilation
+keras 2.2.4.1 2.2.5.0             FALSE
+
+installing the source package ‘keras’
+
+trying URL 'https://cran.rstudio.com/src/contrib/keras_2.2.5.0.tar.gz'
+Content type 'application/x-gzip' length 4876490 bytes (4.7 MB)
+downloaded 4.7 MB
+
+* installing *source* package 'keras' ...
+** package 'keras' successfully unpacked and MD5 sums checked
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+  converting help for package 'keras'
+    finding HTML links ... done
+    KerasCallback                           html  
+    finding level-2 HTML links ... done
+
+    KerasConstraint                         html  
+    KerasLayer                              html  
+    KerasWrapper                            html  
+    activation_relu                         html  
+    application_densenet                    html  
+    application_inception_resnet_v2         html  
+    application_inception_v3                html  
+    application_mobilenet                   html  
+    application_mobilenet_v2                html  
+    application_nasnet                      html  
+    application_resnet50                    html  
+    application_vgg                         html  
+    application_xception                    html  
+    backend                                 html  
+    bidirectional                           html  
+    callback_csv_logger                     html  
+    callback_early_stopping                 html  
+    callback_lambda                         html  
+    callback_learning_rate_scheduler        html  
+    callback_model_checkpoint               html  
+    callback_progbar_logger                 html  
+    callback_reduce_lr_on_plateau           html  
+    callback_remote_monitor                 html  
+    callback_tensorboard                    html  
+    callback_terminate_on_naan              html  
+    clone_model                             html  
+    compile.keras.engine.training.Model     html  
+    constraints                             html  
+    count_params                            html  
+    create_layer                            html  
+    create_wrapper                          html  
+    dataset_boston_housing                  html  
+    dataset_cifar10                         html  
+    dataset_cifar100                        html  
+    dataset_fashion_mnist                   html  
+    dataset_imdb                            html  
+    dataset_mnist                           html  
+    dataset_reuters                         html  
+    evaluate.keras.engine.training.Model    html  
+    evaluate_generator                      html  
+    export_savedmodel.keras.engine.training.Model
+                                            html  
+    fit.keras.engine.training.Model         html  
+    fit_generator                           html  
+    fit_image_data_generator                html  
+    fit_text_tokenizer                      html  
+    flow_images_from_data                   html  
+    flow_images_from_dataframe              html  
+    flow_images_from_directory              html  
+    freeze_weights                          html  
+    generator_next                          html  
+    get_config                              html  
+    get_file                                html  
+    get_input_at                            html  
+    get_layer                               html  
+    get_weights                             html  
+    hdf5_matrix                             html  
+    image_data_generator                    html  
+    image_load                              html  
+    image_to_array                          html  
+    imagenet_decode_predictions             html  
+    imagenet_preprocess_input               html  
+    implementation                          html  
+    initializer_constant                    html  
+    initializer_glorot_normal               html  
+    initializer_glorot_uniform              html  
+    initializer_he_normal                   html  
+    initializer_he_uniform                  html  
+    initializer_identity                    html  
+    initializer_lecun_normal                html  
+    initializer_lecun_uniform               html  
+    initializer_ones                        html  
+    initializer_orthogonal                  html  
+    initializer_random_normal               html  
+    initializer_random_uniform              html  
+    initializer_truncated_normal            html  
+    initializer_variance_scaling            html  
+    initializer_zeros                       html  
+    install_keras                           html  
+    is_keras_available                      html  
+    k_abs                                   html  
+    k_all                                   html  
+    k_any                                   html  
+    k_arange                                html  
+    k_argmax                                html  
+    k_argmin                                html  
+    k_backend                               html  
+    k_batch_dot                             html  
+    k_batch_flatten                         html  
+    k_batch_get_value                       html  
+    k_batch_normalization                   html  
+    k_batch_set_value                       html  
+    k_bias_add                              html  
+    k_binary_crossentropy                   html  
+    k_cast                                  html  
+    k_cast_to_floatx                        html  
+    k_categorical_crossentropy              html  
+    k_clear_session                         html  
+    k_clip                                  html  
+    k_concatenate                           html  
+    k_constant                              html  
+    k_conv1d                                html  
+    k_conv2d                                html  
+    k_conv2d_transpose                      html  
+    k_conv3d                                html  
+    k_conv3d_transpose                      html  
+    k_cos                                   html  
+    k_count_params                          html  
+    k_ctc_batch_cost                        html  
+    k_ctc_decode                            html  
+    k_ctc_label_dense_to_sparse             html  
+    k_cumprod                               html  
+    k_cumsum                                html  
+    k_depthwise_conv2d                      html  
+    k_dot                                   html  
+    k_dropout                               html  
+    k_dtype                                 html  
+    k_elu                                   html  
+    k_epsilon                               html  
+    k_equal                                 html  
+    k_eval                                  html  
+    k_exp                                   html  
+    k_expand_dims                           html  
+    k_eye                                   html  
+    k_flatten                               html  
+    k_floatx                                html  
+    k_foldl                                 html  
+    k_foldr                                 html  
+    k_function                              html  
+    k_gather                                html  
+    k_get_session                           html  
+    k_get_uid                               html  
+    k_get_value                             html  
+    k_get_variable_shape                    html  
+    k_gradients                             html  
+    k_greater                               html  
+    k_greater_equal                         html  
+    k_hard_sigmoid                          html  
+    k_identity                              html  
+    k_image_data_format                     html  
+    k_in_test_phase                         html  
+    k_in_top_k                              html  
+    k_in_train_phase                        html  
+    k_int_shape                             html  
+    k_is_keras_tensor                       html  
+    k_is_placeholder                        html  
+    k_is_sparse                             html  
+    k_is_tensor                             html  
+    k_l2_normalize                          html  
+    k_learning_phase                        html  
+    k_less                                  html  
+    k_less_equal                            html  
+    k_local_conv1d                          html  
+    k_local_conv2d                          html  
+    k_log                                   html  
+    k_logsumexp                             html  
+    k_manual_variable_initialization        html  
+    k_map_fn                                html  
+    k_max                                   html  
+    k_maximum                               html  
+    k_mean                                  html  
+    k_min                                   html  
+    k_minimum                               html  
+    k_moving_average_update                 html  
+    k_ndim                                  html  
+    k_normalize_batch_in_training           html  
+    k_not_equal                             html  
+    k_one_hot                               html  
+    k_ones                                  html  
+    k_ones_like                             html  
+    k_permute_dimensions                    html  
+    k_placeholder                           html  
+    k_pool2d                                html  
+    k_pool3d                                html  
+    k_pow                                   html  
+    k_print_tensor                          html  
+    k_prod                                  html  
+    k_random_binomial                       html  
+    k_random_normal                         html  
+    k_random_normal_variable                html  
+    k_random_uniform                        html  
+    k_random_uniform_variable               html  
+    k_relu                                  html  
+    k_repeat                                html  
+    k_repeat_elements                       html  
+    k_reset_uids                            html  
+    k_reshape                               html  
+    k_resize_images                         html  
+    k_resize_volumes                        html  
+    k_reverse                               html  
+    k_rnn                                   html  
+    k_round                                 html  
+    k_separable_conv2d                      html  
+    k_set_learning_phase                    html  
+    k_set_value                             html  
+    k_shape                                 html  
+    k_sigmoid                               html  
+    k_sign                                  html  
+    k_sin                                   html  
+    k_softmax                               html  
+    k_softplus                              html  
+    k_softsign                              html  
+    k_sparse_categorical_crossentropy       html  
+    k_spatial_2d_padding                    html  
+    k_spatial_3d_padding                    html  
+    k_sqrt                                  html  
+    k_square                                html  
+    k_squeeze                               html  
+    k_stack                                 html  
+    k_std                                   html  
+    k_stop_gradient                         html  
+    k_sum                                   html  
+    k_switch                                html  
+    k_tanh                                  html  
+    k_temporal_padding                      html  
+    k_tile                                  html  
+    k_to_dense                              html  
+    k_transpose                             html  
+    k_truncated_normal                      html  
+    k_update                                html  
+    k_update_add                            html  
+    k_update_sub                            html  
+    k_var                                   html  
+    k_variable                              html  
+    k_zeros                                 html  
+    k_zeros_like                            html  
+    keras-package                           html  
+    keras_array                             html  
+    keras_model                             html  
+    keras_model_custom                      html  
+    keras_model_sequential                  html  
+    layer_activation                        html  
+    layer_activation_elu                    html  
+    layer_activation_leaky_relu             html  
+    layer_activation_parametric_relu        html  
+    layer_activation_relu                   html  
+    layer_activation_selu                   html  
+    layer_activation_softmax                html  
+    layer_activation_thresholded_relu       html  
+    layer_activity_regularization           html  
+    layer_add                               html  
+    layer_alpha_dropout                     html  
+    layer_average                           html  
+    layer_average_pooling_1d                html  
+    layer_average_pooling_2d                html  
+    layer_average_pooling_3d                html  
+    layer_batch_normalization               html  
+    layer_concatenate                       html  
+    layer_conv_1d                           html  
+    layer_conv_2d                           html  
+    layer_conv_2d_transpose                 html  
+    layer_conv_3d                           html  
+    layer_conv_3d_transpose                 html  
+    layer_conv_lstm_2d                      html  
+    layer_cropping_1d                       html  
+    layer_cropping_2d                       html  
+    layer_cropping_3d                       html  
+    layer_cudnn_gru                         html  
+    layer_cudnn_lstm                        html  
+    layer_dense                             html  
+    layer_dense_features                    html  
+    layer_depthwise_conv_2d                 html  
+    layer_dot                               html  
+    layer_dropout                           html  
+    layer_embedding                         html  
+    layer_flatten                           html  
+    layer_gaussian_dropout                  html  
+    layer_gaussian_noise                    html  
+    layer_global_average_pooling_1d         html  
+    layer_global_average_pooling_2d         html  
+    layer_global_average_pooling_3d         html  
+    layer_global_max_pooling_1d             html  
+    layer_global_max_pooling_2d             html  
+    layer_global_max_pooling_3d             html  
+    layer_gru                               html  
+    layer_input                             html  
+    layer_lambda                            html  
+    layer_locally_connected_1d              html  
+    layer_locally_connected_2d              html  
+    layer_lstm                              html  
+    layer_masking                           html  
+    layer_max_pooling_1d                    html  
+    layer_max_pooling_2d                    html  
+    layer_max_pooling_3d                    html  
+    layer_maximum                           html  
+    layer_minimum                           html  
+    layer_multiply                          html  
+    layer_permute                           html  
+    layer_repeat_vector                     html  
+    layer_reshape                           html  
+    layer_separable_conv_1d                 html  
+    layer_separable_conv_2d                 html  
+    layer_simple_rnn                        html  
+    layer_spatial_dropout_1d                html  
+    layer_spatial_dropout_2d                html  
+    layer_spatial_dropout_3d                html  
+    layer_subtract                          html  
+    layer_upsampling_1d                     html  
+    layer_upsampling_2d                     html  
+    layer_upsampling_3d                     html  
+    layer_zero_padding_1d                   html  
+    layer_zero_padding_2d                   html  
+    layer_zero_padding_3d                   html  
+    loss_mean_squared_error                 html  
+    make_sampling_table                     html  
+    metric_binary_accuracy                  html  
+    model_from_saved_model                  html  
+    model_to_json                           html  
+    model_to_saved_model                    html  
+    model_to_yaml                           html  
+    multi-assign                            html  
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/multi-assign.Rd:10: file link '%<-%' in package 'zeallot' does not exist and so has been treated as a topic
+    multi_gpu_model                         html  
+    normalize                               html  
+    optimizer_adadelta                      html  
+    optimizer_adagrad                       html  
+    optimizer_adam                          html  
+    optimizer_adamax                        html  
+    optimizer_nadam                         html  
+    optimizer_rmsprop                       html  
+    optimizer_sgd                           html  
+    pad_sequences                           html  
+    pipe                                    html  
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/pipe.Rd:10: file link '%>%' in package 'magrittr' does not exist and so has been treated as a topic
+    plot.keras_training_history             html  
+    pop_layer                               html  
+    predict.keras.engine.training.Model     html  
+    predict_generator                       html  
+    predict_on_batch                        html  
+    predict_proba                           html  
+    reexports                               html  
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/reexports.Rd:33: file link 'use_virtualenv' in package 'reticulate' does not exist and so has been treated as a topic
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/reexports.Rd:33: file link 'use_condaenv' in package 'reticulate' does not exist and so has been treated as a topic
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/reexports.Rd:37: file link 'flag_numeric' in package 'tfruns' does not exist and so has been treated as a topic
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/reexports.Rd:37: file link 'flag_integer' in package 'tfruns' does not exist and so has been treated as a topic
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/reexports.Rd:37: file link 'flag_string' in package 'tfruns' does not exist and so has been treated as a topic
+Rd warning: C:/Users/admin/AppData/Local/Temp/Rtmps73Xq7/R.INSTALL189044df53b/keras/man/reexports.Rd:37: file link 'flag_boolean' in package 'tfruns' does not exist and so has been treated as a topic
+    regularizer_l1                          html  
+    reset_states                            html  
+    save_model_hdf5                         html  
+    save_model_tf                           html  
+    save_model_weights_hdf5                 html  
+    save_model_weights_tf                   html  
+    save_text_tokenizer                     html  
+    sequences_to_matrix                     html  
+    serialize_model                         html  
+    skipgrams                               html  
+    summary.keras.engine.training.Model     html  
+    text_hashing_trick                      html  
+    text_one_hot                            html  
+    text_to_word_sequence                   html  
+    text_tokenizer                          html  
+    texts_to_matrix                         html  
+    texts_to_sequences                      html  
+    texts_to_sequences_generator            html  
+    time_distributed                        html  
+    timeseries_generator                    html  
+    to_categorical                          html  
+    train_on_batch                          html  
+    use_implementation                      html  
+    with_custom_object_scope                html  
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded
+*** arch - i386
+*** arch - x64
+* DONE (keras)
+In R CMD INSTALL
+
+The downloaded source packages are in
+	‘C:\Users\admin\AppData\Local\Temp\Rtmp8IiAvO\downloaded_packages’
+Loading required package: twitteR
+Error: package or namespace load failed for ‘twitteR’ in loadNamespace(j <- i[[1L]], c(lib.loc, .libPaths()), versionCheck = vI[[j]]):
+ there is no package called ‘bit’
+> setwd('C:/Users/admin/Desktop/Rice/Train/')
+> pics<-c('Bacterial1.jpg','Bacterial2.jpg','Bacterial3.jpg','Bacterial4.jpg','Bacterial5.jpg',
++         'Bacterial6.jpg','Bacterial7.jpg','Bacterial8.jpg','Bacterial9.jpg','Brown1.jpg','Brown2.jpg',
++         'Brown3.jpg','Brown4.jpg','Brown5.jpg','Brown6.jpg','Brown7.jpg','Brown8.jpg','Brown9.jpg')
+> mypic<-list()
+> for(i in 1:18){
++   mypic[[i]] <- readImage(pics[i])
++ }
+> print(mypic[[1]])
+Image 
+  colorMode    : Color 
+  storage.mode : double 
+  dim          : 3081 897 3 
+  frames.total : 3 
+  frames.render: 1 
+
+imageData(object)[1:5,1:6,1]
+          [,1]      [,2]      [,3]      [,4]      [,5]      [,6]
+[1,] 0.8980392 0.8980392 0.8980392 0.8941176 0.8901961 0.8901961
+[2,] 0.8980392 0.8980392 0.8980392 0.8901961 0.8901961 0.8862745
+[3,] 0.9019608 0.9019608 0.8980392 0.8901961 0.8901961 0.8862745
+[4,] 0.9019608 0.9019608 0.9019608 0.8941176 0.8901961 0.8901961
+[5,] 0.9058824 0.9058824 0.9019608 0.8980392 0.8941176 0.8901961
+> display(mypic[[2]])
+> summary(mypic[[1]])
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.7529  0.8235  0.7164  0.8549  0.9647 
+> hist(mypic[[2]])
+> str(mypic)
+List of 18
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.898 0.898 0.902 0.902 0.906 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.89 0.894 0.894 0.89 0.894 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.933 0.929 0.922 0.918 0.922 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.918 0.918 0.922 0.925 0.929 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.937 0.937 0.937 0.937 0.937 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.941 0.937 0.937 0.933 0.933 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.941 0.941 0.941 0.941 0.941 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.89 0.89 0.89 0.894 0.894 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:3081, 1:897, 1:3] 0.91 0.906 0.906 0.906 0.906 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:766, 1:250, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:1530, 1:371, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:1480, 1:279, 1:3] 0.455 0.443 0.431 0.42 0.42 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:1504, 1:323, 1:3] 0.882 0.898 0.894 0.878 0.871 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:765, 1:224, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:763, 1:268, 1:3] 0.718 0.698 0.729 0.761 0.733 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:699, 1:197, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:456, 1:124, 1:3] 0.839 0.875 0.867 0.863 0.859 ...
+  .. ..@ colormode: int 2
+ $ :Formal class 'Image' [package "EBImage"] with 2 slots
+  .. ..@ .Data    : num [1:316, 1:127, 1:3] 0.675 0.686 0.694 0.694 0.698 ...
+  .. ..@ colormode: int 2
+> for(i in 1:18)
++ {
++   mypic[[i]] <-resize(mypic[[i]],28,28)
++ }
+> for(i in 1:18)
++ {
++   mypic[[i]]<-array_reshape(mypic[[i]],c(28,28,3))
++ }
+> str(mypic)
+List of 18
+ $ : num [1:28, 1:28, 1:3] 0.894 0.888 0.895 0.891 0.887 ...
+ $ : num [1:28, 1:28, 1:3] 0.888 0.889 0.892 0.89 0.884 ...
+ $ : num [1:28, 1:28, 1:3] 0.919 0.921 0.91 0.926 0.913 ...
+ $ : num [1:28, 1:28, 1:3] 0.929 0.923 0.927 0.917 0.926 ...
+ $ : num [1:28, 1:28, 1:3] 0.947 0.936 0.933 0.937 0.944 ...
+ $ : num [1:28, 1:28, 1:3] 0.934 0.939 0.938 0.944 0.941 ...
+ $ : num [1:28, 1:28, 1:3] 0.942 0.937 0.938 0.941 0.937 ...
+ $ : num [1:28, 1:28, 1:3] 0.898 0.919 0.925 0.915 0.914 ...
+ $ : num [1:28, 1:28, 1:3] 0.905 0.913 0.906 0.922 0.929 ...
+ $ : num [1:28, 1:28, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+ $ : num [1:28, 1:28, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+ $ : num [1:28, 1:28, 1:3] 0.348 0.353 0.254 0.391 0.208 ...
+ $ : num [1:28, 1:28, 1:3] 0.513 0.398 0.339 0.307 0.272 ...
+ $ : num [1:28, 1:28, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+ $ : num [1:28, 1:28, 1:3] 0.686 0.657 0.663 0.667 0.618 ...
+ $ : num [1:28, 1:28, 1:3] 1 1 1 1 1 1 1 1 1 1 ...
+ $ : num [1:28, 1:28, 1:3] 0.868 0.86 0.893 0.768 0.619 ...
+ $ : num [1:28, 1:28, 1:3] 0.702 0.686 0.693 0.704 0.73 ...
+> trainx<-NULL
+> for(i in 1:10)
++ {
++   trainx <- rbind(trainx,mypic[[i]])
++ }
+> str(trainx)
+ num [1:10, 1:2352] 0.894 0.888 0.919 0.929 0.947 ...
+> testx<-rbind(mypic[[6]],mypic[[12]])
+> trainy <-c(0,0,0,0,0,1,1,1,1,1)
+> testy<-c(0,1)
+> trainLabels <- to_categorical(trainy)
+> testLabels<-to_categorical(testy)
+> library(keras)
+> model <- keras_model_sequential()
+> model %>%
++   layer_dense(units =256,activation = 'relu',input_shape=c(2352)) %>%
++   layer_dense(units=128,activation ='relu') %>%
++   layer_dense(units=2,activation='softmax')
+> summary(model)
+Model: "sequential"
+___________________________________________________________________________________________________
+Layer (type)                                Output Shape                            Param #        
+===================================================================================================
+dense (Dense)                               (None, 256)                             602368         
+___________________________________________________________________________________________________
+dense_1 (Dense)                             (None, 128)                             32896          
+___________________________________________________________________________________________________
+dense_2 (Dense)                             (None, 2)                               258            
+===================================================================================================
+Total params: 635,522
+Trainable params: 635,522
+Non-trainable params: 0
+___________________________________________________________________________________________________
+> model %>%
++   compile(loss='binary_crossentropy',optimizer=optimizer_rmsprop(),metrics=c('accuracy'))
+> history <- model %>%
++               fit(trainx,trainLabels,epochs=30,batch_size = 32,validation_split=0.2)
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorflow\python\framework\dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+C:\Users\admin\DOCUME~1\CONDA~1\envs\R-RETI~1\lib\site-packages\tensorboard\compat\tensorflow_stub\dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+2019-10-10 15:58:36.598956: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+Train on 8 samples, validate on 2 samples
+Epoch 1/30
+8/8 [==============================] - 5s 576ms/sample - loss: 0.7358 - acc: 0.2500 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 2/30
+8/8 [==============================] - 1s 91ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 3/30
+8/8 [==============================] - 1s 80ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 4/30
+8/8 [==============================] - 1s 78ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 5/30
+8/8 [==============================] - 1s 86ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 6/30
+8/8 [==============================] - 1s 78ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 7/30
+8/8 [==============================] - 1s 83ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 8/30
+8/8 [==============================] - 1s 81ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 9/30
+8/8 [==============================] - 1s 90ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 10/30
+8/8 [==============================] - 1s 90ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 11/30
+8/8 [==============================] - 1s 82ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 12/30
+8/8 [==============================] - 1s 79ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 13/30
+8/8 [==============================] - 1s 87ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 14/30
+8/8 [==============================] - 1s 85ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 15/30
+8/8 [==============================] - 1s 79ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 16/30
+8/8 [==============================] - 1s 85ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 17/30
+8/8 [==============================] - 1s 82ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 18/30
+8/8 [==============================] - 1s 76ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 19/30
+8/8 [==============================] - 1s 89ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 20/30
+8/8 [==============================] - 1s 82ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 21/30
+8/8 [==============================] - 1s 76ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 22/30
+8/8 [==============================] - 1s 85ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 23/30
+8/8 [==============================] - 1s 83ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 24/30
+8/8 [==============================] - 1s 77ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 25/30
+8/8 [==============================] - 1s 86ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 26/30
+8/8 [==============================] - 1s 84ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 27/30
+8/8 [==============================] - 1s 78ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 28/30
+8/8 [==============================] - 1s 90ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 29/30
+8/8 [==============================] - 1s 83ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+Epoch 30/30
+8/8 [==============================] - 1s 77ms/sample - loss: 5.7672 - acc: 0.6250 - val_loss: 15.3791 - val_acc: 0.0000e+00
+> plot(history)

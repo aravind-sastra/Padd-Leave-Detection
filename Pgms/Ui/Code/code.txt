@@ -1,0 +1,32 @@
+
+library(shiny)
+library(shinydashboard)
+library(shinyWidgets)
+ui <- dashboardPage(skin = "green",
+  dashboardHeader(title = "Paddy Leaf Disease Detection"),
+  dashboardSidebar(
+    menuItem("INPUT IMAGES",tabName = "INPUT"),
+    menuItem("OUTPUT IMAGES",tabName = "OUTPUT"),
+    menuItem("DATA SUMMARY",tabName = "DATA"),
+    menuItem("PLOT")
+  ),
+  dashboardBody(
+    fluidRow(column(6,align="center",imageOutput("img"))),
+    setBackgroundImage(src = "images.jpeg"),
+    #tabItem(tabPanel(tags$img(src="images"))),
+    tabItems(tabItem(tabName = "INPUT",
+    headerPanel("BACTERIAL BLIGHT"),
+    fileInput("file","Upload the file",multiple = T),hr(),tabPanel("Upload file"),headerPanel("BROWN SPOT"),
+    fileInput("file","Upload the file",multiple = T),hr(),tabPanel("Upload file"),headerPanel("LEAF SMUT"),
+    fileInput("file","Upload the file",multiple = T),hr(),tabPanel("Upload file"))),
+  
+    tabItems(tabItem(tabName = "OUTPUT",tabPanel(tags$img(src = "BBL1.jpg"),img(src = "BBL2.jpg"),img(src = "BBL3.jpg"))
+
+)
+)
+)
+)
+server <- function(input,output){
+  output$img <-renderImage({return(list(src = "D:/image.jpg",contentType="image/jpg",width=800,height=700,alt="Face"))},deleteFile=FALSE)
+}
+shinyApp(ui, server)
